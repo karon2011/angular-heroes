@@ -1,8 +1,20 @@
-<h1>{{title}}</h1>
-<!-- <app-heroes></app-heroes> -->
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button routerLink="/dashboard" mat-menu-item>Dashboard</button>
+  <button routerLink="/heroes" mat-menu-item>Heroes</button>
+</mat-menu>
+<div>
+  <mat-card>
+    <!-- <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/heroes">Heroes</a>
+    </nav> -->
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+  </mat-card>
+</div>

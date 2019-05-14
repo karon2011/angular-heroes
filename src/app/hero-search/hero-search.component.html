@@ -1,27 +1,17 @@
-<!-- <div id="search-component">
+  <div id="search-component">
     <h4>Hero Search</h4>
-   
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-   
+    <mat-card>
+      <form class="form-center">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Your hero" value="Batman" #searchBox id="search-box" (input)="search(searchBox.value)" />
+      </mat-form-field>
+    </form>
     <ul class="search-result">
-      <li *ngFor="let hero of heroes$ | async" >
+      <li *ngFor="let hero of heroes$ | async">
         <a routerLink="/detail/{{hero.id}}">
           {{hero.name}}
         </a>
       </li>
     </ul>
-  </div> -->
-
-  <div id="search-component">
-      <h4>Hero Search</h4>
-     
-      <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-     
-      <ul class="search-result">
-        <li *ngFor="let hero of heroes$ | async" >
-          <a routerLink="/detail/{{hero.id}}">
-            {{hero.name}}
-          </a>
-        </li>
-      </ul>
-    </div>
+    </mat-card>
+  </div>

@@ -80,10 +80,10 @@ export class HeroService {
     const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete<Hero>(url, httpOptions)
-    .pipe(
-      tap((myHero: Hero) => this.log(`Deleted Hero_Id=${id}`)),
-      catchError(this.handleError<Hero>('Delete Hero'))
-    );
+      .pipe(
+        tap((myHero: Hero) => this.log(`Deleted Hero_Id=${id}`)),
+        catchError(this.handleError<Hero>('Delete Hero'))
+      );
   }
 
   /* GET heroes whose name contains search term */
@@ -93,10 +93,10 @@ export class HeroService {
       return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
-    .pipe(
-      tap(_ => this.log(`Found heroes matching "${term}"`)),
-      catchError(this.handleError<Hero[]>(`searchHeroes`, []))
-    );
+      .pipe(
+        tap(_ => this.log(`Found heroes matching "${term}"`)),
+        catchError(this.handleError<Hero[]>(`searchHeroes`, []))
+      );
   }
 
   /** Log a HeroService message with the MessageService */
