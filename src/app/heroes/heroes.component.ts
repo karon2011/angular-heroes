@@ -7,9 +7,14 @@ import { HeroService } from '../hero.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
+
+
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
+
+  displayedColumns: string[] = ['position', 'name'];
+  public dataSource = this.heroes;
 
   constructor(
     private heroService: HeroService,
